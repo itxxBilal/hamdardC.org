@@ -1,0 +1,51 @@
+@keyframes zoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-zoom {
+  animation: zoom 20s ease-in-out infinite;
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .animate-zoom,
+  .animate-gradient,
+  .animate-float {
+    animation: none;
+  }
+  
+  .transition-all,
+  .transition-transform,
+  .transition-colors {
+    transition: none;
+  }
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #0A400C;
+  outline-offset: 2px;
+}
