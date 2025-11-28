@@ -101,14 +101,14 @@ const Navbar = () => {
   ];
 
   // Check if the current path matches '/admin' or any sub-route of '/admin'
-  const isAdminRoute =
-    location.pathname.startsWith("/admin") ||
-    location.pathname === "/dashboard";
+  // const isAdminRoute =
+  //   location.pathname.startsWith("/admin") ||
+  //   location.pathname === "/dashboard";
 
-  // If on an admin route or dashboard, hide the navbar
-  if (isAdminRoute) {
-    return null;
-  }
+  // // If on an admin route or dashboard, hide the navbar
+  // if (isAdminRoute) {
+  //   return null;
+  // }
 
   const isActiveLink = (path: string) => {
     if (path === "/") {
