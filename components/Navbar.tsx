@@ -12,6 +12,13 @@ import {
   MapPin,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
+
+interface NavLink {
+  path?: string;
+  label: string;
+  dropdown?: Array<{ path: string; label: string }>;
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -45,7 +52,7 @@ const Navbar = () => {
     };
   }, []);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { path: "/", label: "Home" },
     {
       label: "About Us",
@@ -101,25 +108,21 @@ const Navbar = () => {
   ];
 
   // Check if the current path matches '/admin' or any sub-route of '/admin'
-  // const isAdminRoute =
-  //   location.pathname.startsWith("/admin") ||
-  //   location.pathname === "/dashboard";
+  const isAdminRoute = pathname.startsWith("/admin") || pathname === "/dashboard";
 
-  // // If on an admin route or dashboard, hide the navbar
-  // if (isAdminRoute) {
-  //   return null;
-  // }
+  // If on an admin route or dashboard, hide the navbar
+  if (isAdminRoute) {
+    return null;
+  }
 
   const isActiveLink = (path: string) => {
     if (path === "/") {
-      return location.pathname === "/";
+      return pathname === "/";
     }
-    return location.pathname.startsWith(path);
+    return pathname.startsWith(path);
   };
 
-  const isActiveDropdown = (
-    dropdownItems: Array<{ path: string; label: string }>
-  ) => {
+  const isActiveDropdown = (dropdownItems: Array<{ path: string; label: string }>) => {
     return dropdownItems.some((item) => isActiveLink(item.path));
   };
 
@@ -158,7 +161,7 @@ const Navbar = () => {
     <div className="font-sans">
       {/* Top Bar - Hidden on Mobile */}
       <div
-        className={`bg-gradient-to-r from-[#0A400C] to-[#819067] text-white py-2 px-4 ${
+        className={`bg-linear-to-r from-[#0A400C] to-[#819067] text-white py-2 px-4 ${
           isMobile ? "hidden" : "block"
         }`}
       >
@@ -203,7 +206,7 @@ const Navbar = () => {
               onClick={closeMobileMenu}
             >
               <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#0A400C] to-[#819067] rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg">
+                <div className="w-12 h-12 bg-linear-to-br from-[#0A400C] to-[#819067] rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg">
                   <img
                     src="/WhiteLogo.svg"
                     className="w-11 h-11 text-white"
@@ -240,7 +243,7 @@ const Navbar = () => {
                     >
                       {item.label}
                       {isActiveLink(item.path) && (
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-[#0A400C] to-[#819067] rounded-full"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-linear-to-r from-[#0A400C] to-[#819067] rounded-full"></div>
                       )}
                     </Link>
                   );
@@ -268,7 +271,7 @@ const Navbar = () => {
                           } group-hover:rotate-180`}
                         />
                         {isActive && (
-                          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-[#0A400C] to-[#819067] rounded-full"></div>
+                          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-linear-to-r from-[#0A400C] to-[#819067] rounded-full"></div>
                         )}
                       </button>
 
@@ -286,7 +289,7 @@ const Navbar = () => {
                               href={dropdownItem.path}
                               className={`block px-4 py-3 text-sm transition-all duration-300 border-l-2 mx-2 rounded-lg ${
                                 isActiveLink(dropdownItem.path)
-                                  ? "bg-gradient-to-r from-[#0A400C]/5 to-[#819067]/5 text-[#0A400C] font-semibold border-l-[#0A400C]"
+                                  ? "bg-linear-to-r from-[#0A400C]/5 to-[#819067]/5 text-[#0A400C] font-semibold border-l-[#0A400C]"
                                   : "text-gray-700 hover:text-[#0A400C] hover:bg-gray-50 border-l-transparent hover:border-l-[#819067]"
                               }`}
                             >
@@ -304,7 +307,7 @@ const Navbar = () => {
               {/* Donate Button */}
               <Link
                 href="/donate"
-                className="ml-4 bg-gradient-to-r from-[#0A400C] to-[#819067] text-white px-6 py-2.5 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold shadow-lg flex items-center space-x-2"
+                className="ml-4 bg-linear-to-r from-[#0A400C] to-[#819067] text-white px-6 py-2.5 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold shadow-lg flex items-center space-x-2"
               >
                 <Heart className="w-4 h-4" />
                 <span>Donate Now</span>
@@ -315,7 +318,7 @@ const Navbar = () => {
             <div className="lg:hidden flex items-center space-x-2">
               <Link
                 href="/donate"
-                className="bg-gradient-to-r from-[#0A400C] to-[#819067] text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-sm flex items-center space-x-1"
+                className="bg-linear-to-r from-[#0A400C] to-[#819067] text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-sm flex items-center space-x-1"
               >
                 <Heart className="w-3 h-3" />
                 <span>Donate</span>
@@ -348,7 +351,7 @@ const Navbar = () => {
                         onClick={closeMobileMenu}
                         className={`block px-4 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${
                           isActiveLink(item.path)
-                            ? "text-[#0A400C] bg-gradient-to-r from-[#0A400C]/5 to-[#819067]/5"
+                            ? "text-[#0A400C] bg-linear-to-r from-[#0A400C]/5 to-[#819067]/5"
                             : "text-gray-700 hover:text-[#0A400C] hover:bg-gray-50"
                         }`}
                       >
@@ -368,7 +371,7 @@ const Navbar = () => {
                           }
                           className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${
                             isActive
-                              ? "text-[#0A400C] bg-gradient-to-r from-[#0A400C]/5 to-[#819067]/5"
+                              ? "text-[#0A400C] bg-linear-to-r from-[#0A400C]/5 to-[#819067]/5"
                               : "text-gray-700 hover:text-[#0A400C] hover:bg-gray-50"
                           }`}
                         >
@@ -409,7 +412,7 @@ const Navbar = () => {
                 <Link
                   href="/donate"
                   onClick={closeMobileMenu}
-                  className="block px-4 py-3 rounded-xl text-base font-semibold bg-gradient-to-r from-[#0A400C] to-[#819067] text-white hover:shadow-lg text-center mt-2 transition-all duration-300 flex items-center justify-center space-x-2"
+                  className="block px-4 py-3 rounded-xl text-base font-semibold bg-linear-to-r from-[#0A400C] to-[#819067] text-white hover:shadow-lg text-center mt-2 transition-all duration-300 items-center justify-center space-x-2"
                 >
                   <Heart className="w-4 h-4" />
                   <span>Donate Now</span>
