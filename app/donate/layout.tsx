@@ -1,9 +1,10 @@
+// app/donate/layout.tsx
 import type { Metadata } from "next";
 
-const pageUrl = "https://hamdardcommittee.org/about";
-const pageTitle = "About Us – Hamdard Committee";
+const pageUrl = "https://hamdardcommittee.org/donate";
+const pageTitle = "Donate Now";
 const pageDesc =
-  "Hamdard Committee is dedicated to providing welfare, ambulance, medical assistance, and community support services across Pakistan, ensuring fast response and transparency in all initiatives.";
+  "Support Hamdard Committee by donating to welfare projects, ambulance service, medical help and community aid. Your contribution directly helps people in need across Pakistan.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Hamdard Committee",
     images: [
       {
-        url: "/og-images/og-aboutus.png",
+        url: "/og-images/og-donatenow.png",
         width: 1200,
         height: 630,
         alt: pageTitle,
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDesc,
-    images: ["/og-images/og-aboutus.png"],
+    images: ["/og-images/og-donatenow.png"],
   },
 
   robots: {
@@ -49,18 +50,27 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutLayout({ children }: { children: React.ReactNode }) {
+export default function DonateLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Hamdard Committee",
+    "@type": "DonateAction",
+    name: pageTitle,
     url: pageUrl,
     description: pageDesc,
-    logo: "https://hamdardcommittee.org/logo.png",
-    sameAs: [
-      "https://facebook.com/yourpage",
-      "https://instagram.com/yourpage"
-    ],
+    recipient: {
+      "@type": "Organization",
+      name: "Hamdard Committee",
+      url: "https://hamdardcommittee.org",
+    },
+    actionStatus: "PotentialActionStatus",
+    potentialAction: {
+      "@type": "DonateAction",
+      target: pageUrl,
+    },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
@@ -73,7 +83,7 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
         {
           "@type": "ListItem",
           position: 2,
-          name: "About Us",
+          name: pageTitle,
           item: pageUrl,
         },
       ],
@@ -82,7 +92,12 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
       {children}
     </>
   );

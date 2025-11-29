@@ -1,9 +1,10 @@
+// app/contact/layout.tsx
 import type { Metadata } from "next";
 
-const pageUrl = "https://hamdardcommittee.org/about";
-const pageTitle = "About Us – Hamdard Committee";
+const pageUrl = "https://hamdardcommittee.org/contact";
+const pageTitle = "Contact Us";
 const pageDesc =
-  "Hamdard Committee is dedicated to providing welfare, ambulance, medical assistance, and community support services across Pakistan, ensuring fast response and transparency in all initiatives.";
+  "Contact Hamdard Committee for welfare support, ambulance services, community help and general inquiries. Fast response and dedicated support for everyone.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Hamdard Committee",
     images: [
       {
-        url: "/og-images/og-aboutus.png",
+        url: "/og-images/og-contactus.png",
         width: 1200,
         height: 630,
         alt: pageTitle,
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDesc,
-    images: ["/og-images/og-aboutus.png"],
+    images: ["/og-images/og-contactus.png"],
   },
 
   robots: {
@@ -49,18 +50,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutLayout({ children }: { children: React.ReactNode }) {
+export default function ContactLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Hamdard Committee",
+    "@type": "ContactPage",
+    name: pageTitle,
     url: pageUrl,
     description: pageDesc,
-    logo: "https://hamdardcommittee.org/logo.png",
-    sameAs: [
-      "https://facebook.com/yourpage",
-      "https://instagram.com/yourpage"
-    ],
+    provider: {
+      "@type": "Organization",
+      name: "Hamdard Committee",
+      url: "https://hamdardcommittee.org",
+    },
+    contactOption: "TollFree",
+    contactType: "Customer Support",
+    availableLanguage: ["Urdu", "English"],
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
@@ -73,7 +81,7 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
         {
           "@type": "ListItem",
           position: 2,
-          name: "About Us",
+          name: pageTitle,
           item: pageUrl,
         },
       ],
@@ -82,7 +90,12 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
       {children}
     </>
   );
