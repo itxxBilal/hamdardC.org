@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'News & Blogs - Hamdard Committee Latest Updates & Stories',
@@ -42,5 +43,15 @@ interface LayoutProps {
 }
 
 export default function NewsLayout({ children }: LayoutProps) {
-  return children;
+  return (
+    <Suspense 
+      fallback={
+        <div className="min-h-screen bg-white flex items-center justify-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#0A400C]"></div>
+        </div>
+      }
+    >
+      {children}
+    </Suspense>
+  );
 }

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { ArrowLeft, Users, Award, Heart, Shield, Droplets, Ambulance, Book, Utensils, Target, Calendar } from 'lucide-react';
 // import LeadershipCard from './components/LeadershipCard';
