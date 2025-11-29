@@ -61,6 +61,8 @@ const Navbar = () => {
         { path: "/about/founder", label: "Founder" },
         { path: "/about/team", label: "Team" },
         { path: "/about/mission", label: "Our Mission & Vision" },
+        { path: "/about/volunteers", label: "Our Volunteers" },
+
       ],
     },
     {
@@ -96,13 +98,13 @@ const Navbar = () => {
       label: "More",
       dropdown: [
         { path: "/become-volunteer", label: "Become Volunteer" },
-        { path: "/volunteers", label: "Our Volunteers" },
+        // { path: "/volunteers", label: "Our Volunteers" },
         { path: "/news", label: "News" },
         { path: "/gallery", label: "Gallery" },
         { path: "/contact", label: "Contact" },
         { path: "/notifications", label: "Notifications" },
         { path: "/complain", label: "Complain" },
-        { path: "/chakno-172-9l", label: "Village Profile" },
+        { path: "villages/chakno-172-9l", label: "Village Profile" },
       ],
     },
   ];
@@ -161,9 +163,8 @@ const Navbar = () => {
     <div className="font-sans">
       {/* Top Bar - Hidden on Mobile */}
       <div
-        className={`bg-linear-to-r from-[#0A400C] to-[#819067] text-white py-2 px-4 ${
-          isMobile ? "hidden" : "block"
-        }`}
+        className={`bg-linear-to-r from-[#0A400C] to-[#819067] text-white py-2 px-4 ${isMobile ? "hidden" : "block"
+          }`}
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-sm space-y-1 sm:space-y-0">
           <div className="flex items-center space-x-6">
@@ -193,9 +194,8 @@ const Navbar = () => {
 
       {/* Main Navbar */}
       <nav
-        className={`bg-white sticky top-0 z-50 transition-all duration-500 ${
-          isScrolled ? "shadow-2xl border-b border-gray-100" : "shadow-lg"
-        }`}
+        className={`bg-white sticky top-0 z-50 transition-all duration-500 ${isScrolled ? "shadow-2xl border-b border-gray-100" : "shadow-lg"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
@@ -235,11 +235,10 @@ const Navbar = () => {
                     <Link
                       key={item.path}
                       href={item.path}
-                      className={`relative font-semibold transition-all duration-300 px-4 py-2 rounded-lg mx-1 ${
-                        isActiveLink(item.path)
+                      className={`relative font-semibold transition-all duration-300 px-4 py-2 rounded-lg mx-1 ${isActiveLink(item.path)
                           ? "text-[#0A400C] bg-[#0A400C]/5"
                           : "text-gray-700 hover:text-[#0A400C] hover:bg-gray-50"
-                      }`}
+                        }`}
                     >
                       {item.label}
                       {isActiveLink(item.path) && (
@@ -258,17 +257,15 @@ const Navbar = () => {
                       onMouseLeave={handleDropdownLeave}
                     >
                       <button
-                        className={`relative font-semibold transition-all duration-300 px-4 py-2 rounded-lg mx-1 flex items-center space-x-1 group ${
-                          isActive
+                        className={`relative font-semibold transition-all duration-300 px-4 py-2 rounded-lg mx-1 flex items-center space-x-1 group ${isActive
                             ? "text-[#0A400C] bg-[#0A400C]/5"
                             : "text-gray-700 hover:text-[#0A400C] hover:bg-gray-50"
-                        }`}
+                          }`}
                       >
                         <span>{item.label}</span>
                         <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-300 ${
-                            activeDropdown === item.label ? "rotate-180" : ""
-                          } group-hover:rotate-180`}
+                          className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""
+                            } group-hover:rotate-180`}
                         />
                         {isActive && (
                           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-linear-to-r from-[#0A400C] to-[#819067] rounded-full"></div>
@@ -287,11 +284,10 @@ const Navbar = () => {
                             <Link
                               key={dropdownItem.path}
                               href={dropdownItem.path}
-                              className={`block px-4 py-3 text-sm transition-all duration-300 border-l-2 mx-2 rounded-lg ${
-                                isActiveLink(dropdownItem.path)
+                              className={`block px-4 py-3 text-sm transition-all duration-300 border-l-2 mx-2 rounded-lg ${isActiveLink(dropdownItem.path)
                                   ? "bg-linear-to-r from-[#0A400C]/5 to-[#819067]/5 text-[#0A400C] font-semibold border-l-[#0A400C]"
                                   : "text-gray-700 hover:text-[#0A400C] hover:bg-gray-50 border-l-transparent hover:border-l-[#819067]"
-                              }`}
+                                }`}
                             >
                               {dropdownItem.label}
                             </Link>
@@ -349,11 +345,10 @@ const Navbar = () => {
                         key={item.path}
                         href={item.path}
                         onClick={closeMobileMenu}
-                        className={`block px-4 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${
-                          isActiveLink(item.path)
+                        className={`block px-4 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${isActiveLink(item.path)
                             ? "text-[#0A400C] bg-linear-to-r from-[#0A400C]/5 to-[#819067]/5"
                             : "text-gray-700 hover:text-[#0A400C] hover:bg-gray-50"
-                        }`}
+                          }`}
                       >
                         {item.label}
                       </Link>
@@ -369,17 +364,15 @@ const Navbar = () => {
                           onClick={() =>
                             setActiveDropdown(isExpanded ? null : item.label)
                           }
-                          className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${
-                            isActive
+                          className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${isActive
                               ? "text-[#0A400C] bg-linear-to-r from-[#0A400C]/5 to-[#819067]/5"
                               : "text-gray-700 hover:text-[#0A400C] hover:bg-gray-50"
-                          }`}
+                            }`}
                         >
                           <span>{item.label}</span>
                           <ChevronDown
-                            className={`w-4 h-4 transition-transform duration-300 ${
-                              isExpanded ? "rotate-180" : ""
-                            }`}
+                            className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""
+                              }`}
                           />
                         </button>
 
@@ -391,11 +384,10 @@ const Navbar = () => {
                                 key={dropdownItem.path}
                                 href={dropdownItem.path}
                                 onClick={closeMobileMenu}
-                                className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
-                                  isActiveLink(dropdownItem.path)
+                                className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${isActiveLink(dropdownItem.path)
                                     ? "text-[#0A400C] bg-[#0A400C]/5 font-semibold"
                                     : "text-gray-600 hover:text-[#0A400C] hover:bg-gray-50"
-                                }`}
+                                  }`}
                               >
                                 {dropdownItem.label}
                               </Link>

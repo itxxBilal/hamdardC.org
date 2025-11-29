@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from "next/link";
 import { Users, Target, Award, Heart, ArrowRight, Star, Calendar, MapPin } from 'lucide-react';
 import LeadershipCard from './components/LeadershipCard';
-import VolunteerCard from '../../components/VolunteerCard';
+import VolunteerCard from './components/VolunteerCard';
 import { supabase } from '../../lib/supabase';
 
 const AboutPage = () => {
