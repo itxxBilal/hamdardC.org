@@ -17,6 +17,7 @@
     "next": "16.0.5",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "react-ga4": "^2.1.0",
     "react-parallax-tilt": "^1.7.314",
     "react-router-dom": "^7.9.6",
     "react-scroll-parallax": "^3.5.0"
@@ -26,6 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "baseline-browser-mapping": "^2.8.32",
     "eslint": "^9",
     "eslint-config-next": "16.0.5",
     "tailwindcss": "^4",
