@@ -1,6 +1,7 @@
+"use client";
+
+import Link from "next/link";
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, Droplets, Calendar, Clock, AlertTriangle, CheckCircle } from 'lucide-react';
 
 const FilterPlant: React.FC = () => {
@@ -72,31 +73,13 @@ const FilterPlant: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>Filter Plant Notifications | Hamdard Committee Water Plant</title>
-        <meta 
-          name="description" 
-          content="RO water filter plant notifications, maintenance schedules, water quality reports, and operational updates from Hamdard Committee Chichawatni." 
-        />
-        <meta 
-          name="keywords" 
-          content="RO plant, water filter, maintenance, water quality, hamdard committee, chichawatni, notifications" 
-        />
-        <link rel="canonical" href="https://hamdardcommittee.org/notifications/filter-plant" />
-        
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="Filter Plant Notifications | Hamdard Committee" />
-        <meta property="og:description" content="RO water plant maintenance updates and water quality reports" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://hamdardcommittee.org/notifications/filter-plant" />
-      </Helmet>
-
+  
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center space-x-4">
             <Link
-              to="/notifications"
+              href="/notifications"
               className="p-2 text-gray-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors duration-200"
             >
               <ArrowLeft className="w-5 h-5" />

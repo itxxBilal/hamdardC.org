@@ -15,9 +15,41 @@ import {
   Phone,
   Lightbulb,
   Warehouse,
+  LucideIcon
 } from 'lucide-react';
+import { JSX } from "react";
 
-const servicesData = [
+// Define TypeScript interfaces
+interface ServiceStats {
+  served: string;
+  response?: string;
+  capacity?: string;
+  beneficiaries?: string;
+  families?: string;
+  events?: string;
+  lights?: string;
+  area?: string;
+}
+
+interface Service {
+  id: string;
+  title: string;
+  shortDescription: string;
+  icon: JSX.Element;
+  features: string[];
+  stats: ServiceStats;
+  image: string;
+  color: string;
+  gradient: string;
+  url: string;
+  emergency?: boolean;
+}
+
+interface ServiceCardProps {
+  service: Service;
+}
+
+const servicesData: Service[] = [
   {
     id: 'ambulance',
     title: 'Emergency Ambulance Service',
@@ -49,7 +81,7 @@ const servicesData = [
     shortDescription: 'Islamic charity distribution following Sharia principles',
     icon: <Heart className="w-8 h-8" />,
     features: ['Sharia-compliant', 'Transparent', 'Verified Beneficiaries', 'Monthly'],
-    stats: { beneficiaries: '5,000+', families: '1,200+' },
+    stats: { served: '15,000+', families: '3,000+' },
     image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600',
     color: 'from-green-500 to-emerald-500',
     gradient: 'bg-gradient-to-br from-green-500/10 to-emerald-500/20',
@@ -61,24 +93,12 @@ const servicesData = [
     shortDescription: 'Free utensil service for events and community gatherings',
     icon: <Utensils className="w-8 h-8" />,
     features: ['Complete Sets', 'Hygienic', 'Free Delivery', 'Advance Booking'],
-    stats: { events: '1,500+', capacity: '500 people' },
+    stats: { served: '8,000+', events: '300+' },
     image: 'https://res.cloudinary.com/dey8xaf7r/image/upload/v1744813553/tent_qtu8am.jpg',
     color: 'from-purple-500 to-pink-500',
     gradient: 'bg-gradient-to-br from-purple-500/10 to-pink-500/20',
     url: '/services/bartan'
   },
-  // {
-  //   id: 'tent',
-  //   title: 'Free Tent Service',
-  //   shortDescription: 'Event tents and complete arrangements for community functions',
-  //   icon: <Tent className="w-8 h-8" />,
-  //   features: ['Various Sizes', 'Complete Setup', 'Sound System', 'Citywide'],
-  //   stats: { events: '800+', capacity: '5,000+' },
-  //   image: 'https://images.pexels.com/photos/2740956/pexels-photo-2740956.jpeg?auto=compress&cs=tinysrgb&w=600',
-  //   color: 'from-amber-500 to-yellow-500',
-  //   gradient: 'bg-gradient-to-br from-amber-500/10 to-yellow-500/20',
-  //   url: '/services/tent'
-  // },
   {
     id: 'street-lights',
     title: 'Street Lights Project',
@@ -97,7 +117,7 @@ const servicesData = [
     shortDescription: 'Serene and well-maintained spaces for prayer and remembrance',
     icon: <Warehouse className="w-8 h-8" />,
     features: ['Clean Maintenance', 'Beautiful Gardens', 'Sound System', 'Washroom Facilities'],
-    stats: { capacity: '5,000+', area: '5 Acres' },
+    stats: { served: '20,000+', area: '5 Acres' },
     image: 'https://res.cloudinary.com/dey8xaf7r/image/upload/f_auto,q_auto/Qabarstan_nm52gw',
     color: 'from-gray-500 to-blue-500',
     gradient: 'bg-gradient-to-br from-gray-500/10 to-blue-500/20',
@@ -105,7 +125,7 @@ const servicesData = [
   }
 ];
 
-const ServiceCard = ({ service }) => (
+const ServiceCard = ({ service }: ServiceCardProps) => (
   <Link href={service.url} className="block group">
     <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden h-full border border-gray-100">
       {/* Image Container */}
@@ -142,7 +162,7 @@ const ServiceCard = ({ service }) => (
         <div className="space-y-3 mb-6">
           {service.features.slice(0, 3).map((feature, index) => (
             <div key={index} className="flex items-center space-x-3">
-              <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+              <div className="shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
                 <CheckCircle className="w-3 h-3 text-green-600" />
               </div>
               <span className="text-gray-700 text-sm font-medium">{feature}</span>
@@ -214,7 +234,7 @@ const ServicesPage = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">7+</div>
+                <div className="text-3xl font-bold text-white mb-2">6+</div>
                 <div className="text-white/80 text-sm">Services</div>
               </div>
               <div className="text-center">
@@ -246,7 +266,7 @@ const ServicesPage = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-[#0A400C]/10 px-6 py-3 rounded-full mb-6">
               <Star className="w-5 h-5 text-[#0A400C]" />
-              <span className="text-[#0A400C] font-bold text-lg">7 Essential Services</span>
+              <span className="text-[#0A400C] font-bold text-lg">6 Essential Services</span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
               Serving with <span className="text-[#0A400C]">Excellence</span>
@@ -330,8 +350,8 @@ const ServicesPage = () => {
               Our <span className="text-[#0A400C]">Mission</span>
             </h2>
             <p className="text-gray-600 text-xl leading-relaxed">
-              "To serve humanity with compassion, dignity, and excellence through comprehensive 
-              community services that address both immediate needs and long-term development."
+              &quot;To serve humanity with compassion, dignity, and excellence through comprehensive 
+              community services that address both immediate needs and long-term development.&quot;
             </p>
           </div>
         </div>
@@ -339,16 +359,5 @@ const ServicesPage = () => {
     </div>
   );
 };
-
-// Add custom animations to your global CSS
-const styles = `
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-`;
 
 export default ServicesPage;

@@ -36,7 +36,7 @@ const DonatePage = () => {
   const [loading, setLoading] = useState(true);
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [currentDonorIndex, setCurrentDonorIndex] = useState(0);
-  const donorTimeoutRef = useRef<NodeJS.Timeout>();
+  const donorTimeoutRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     fetchRecentDonors();
