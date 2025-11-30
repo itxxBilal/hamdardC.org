@@ -1,106 +1,30 @@
-import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
-const pageUrl = "https://hamdardcommittee.org/about/team";
-
-const pageTitle = "Our Team - Dedicated Members of Hamdard Committee"; 
-// 55 characters (Perfect SEO length)
-
-const pageDesc =
-  "Meet the hardworking team behind Hamdard Committee providing welfare, medical aid, ambulance service, and community support across Pakistan."; 
-// 155 characters (Ideal 120–160)
-
-const pageKeywords =
-  "Hamdard Committee team, NGO volunteers Pakistan, welfare workers, ambulance service staff, medical assistance team, humanitarian organization Pakistan";
-
-export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDesc,
-  keywords: pageKeywords,
-
-  alternates: {
-    canonical: pageUrl,
-  },
+export const metadata = {
+  title: "Our Team – Dedicated Members of Hamdard Committee",
+  description:
+    "Meet the hardworking team of Hamdard Committee providing welfare, ambulance, medical aid, and community support services across Pakistan.",
+  keywords:
+    "Hamdard Committee team, NGO workers Pakistan, welfare team, ambulance staff, medical assistance volunteers, humanitarian organization",
+  alternates: { canonical: "https://hamdardcommittee.org/about/team" },
 
   openGraph: {
-    title: pageTitle,
-    description: pageDesc,
-    url: pageUrl,
-    type: "website",
-    siteName: "Hamdard Committee",
+    title: "Our Team – Dedicated Members of Hamdard Committee",
+    description:
+      "Meet the hardworking team of Hamdard Committee providing welfare, ambulance, medical aid, and community support services across Pakistan.",
+    url: "https://hamdardcommittee.org/about/team",
     images: [
-      {
-        url: "/og-images/og-ourteam.png",
-        alt: pageTitle,
-      },
+      "og-images/og-ourteam.png",
     ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: pageTitle,
-    description: pageDesc,
-    images: ["/og-images/og-ourteam.png"],
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
+    siteName: "Hamdard Committee",
+    type: "website",
   },
 };
 
-export default function TeamLayout({ children }: { children: React.ReactNode }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Hamdard Committee",
-    url: pageUrl,
-    description: pageDesc,
-    keywords: pageKeywords,
-
-    department: {
-      "@type": "Organization",
-      name: "Hamdard Committee – Team Members Section",
-    },
-
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://hamdardcommittee.org",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "About",
-          item: "https://hamdardcommittee.org/about",
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Our Team",
-          item: pageUrl,
-        },
-      ],
-    },
-  };
-
+export default function TeamLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      {children}
+      <main>{children}</main>
     </>
   );
 }
