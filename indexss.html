@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hamdard Committee — Serving Humanity with Compassion</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+      body {
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+      }
+
+      .og-canvas {
+        width: 1200px;
+        height: 630px;
+      }
+
+      @keyframes floaty {
+        0% {
+          transform: translateY(0px) rotate(-0.8deg);
+        }
+        50% {
+          transform: translateY(-12px) rotate(1deg);
+        }
+        100% {
+          transform: translateY(0px) rotate(-0.8deg);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -240% 0;
+        }
+        100% {
+          background-position: 240% 0;
+        }
+      }
+
+      .glint {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.03) 0%,
+          rgba(255, 255, 255, 0.16) 50%,
+          rgba(255, 255, 255, 0.03) 100%
+        );
+        background-size: 250% 100%;
+        animation: shimmer 2.8s linear infinite;
+      }
+
+      .feature-card {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .icon-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .nav-item {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateX(3px);
+      }
+
+      .impact-number {
+        background: linear-gradient(135deg, #fff, #e5e7eb);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .emergency-badge {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+    </style>
+  </head>
+
+  <body
+    class="flex items-center justify-center min-h-screen p-6"
+    style="background: linear-gradient(135deg, #0a400c 0%, #819067 100%)"
+  >
+    <div
+      id="canvas"
+      class="og-canvas rounded-3xl relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.55)] border border-white/10"
+      style="
+        background: linear-gradient(
+          135deg,
+          rgba(10, 64, 12, 0.97),
+          rgba(129, 144, 103, 0.94)
+        );
+      "
+    >
+      <!-- Enhanced Decorative glows -->
+      <div
+        class="absolute -left-60 -top-60 w-[600px] h-[600px] rounded-full opacity-25 blur-3xl"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.12),
+            transparent 70%
+          );
+        "
+      ></div>
+
+      <div
+        class="absolute -right-40 -bottom-40 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.1),
+            transparent 65%
+          );
+        "
+      ></div>
+
+      <!-- Top Navigation Bar -->
+      <div class="absolute top-0 left-0 right-0 h-16 flex items-center justify-between px-16">
+        <div class="flex items-center gap-8">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center">
+              <img
+                src="https://hamdardcommittee.org/WhiteLogo.svg"
+                class="w-6 opacity-95"
+              />
+            </div>
+            <div class="text-white font-semibold text-sm">Hamdard Committee</div>
+          </div>
+          
+          <div class="flex items-center gap-6 text-xs">
+            <div class="nav-item text-white/70 hover:text-white px-3 py-2 rounded-lg">Home</div>
+            <div class="nav-item text-white/70 hover:text-white px-3 py-2 rounded-lg">Services</div>
+            <div class="nav-item text-white/70 hover:text-white px-3 py-2 rounded-lg">Projects</div>
+            <div class="nav-item text-white/70 hover:text-white px-3 py-2 rounded-lg">About</div>
+            <div class="nav-item text-white/70 hover:text-white px-3 py-2 rounded-lg">Contact</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="emergency-badge bg-red-500/20 border border-red-400/30 rounded-full px-4 py-2">
+            <div class="text-white font-bold text-sm">🚑 Emergency: +92 301 1955172</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="absolute inset-0 px-16 pt-20 pb-14 flex items-center">
+        <!-- Left Side - Enhanced -->
+        <div class="flex-1 pr-8">
+          <div class="mb-10">
+            <div class="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-4 py-2 mb-4">
+              <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <div class="text-white/80 text-xs uppercase tracking-wider">Serving Since 2019</div>
+            </div>
+<!--             
+            <h1 class="text-7xl font-black text-white leading-[1.1] drop-shadow-[0_8px_30px_rgba(0,0,0,0.6)] mb-6">
+              Building Hope,<br>
+              <span class="bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent">
+                Serving Humanity
+              </span>
+            </h1> -->
+
+            <p class="text-xl text-white/90 max-w-2xl leading-relaxed mb-8">
+              Empowering communities through comprehensive welfare services, sustainable development, 
+              and compassionate care. Join us in creating lasting positive change.
+            </p>
+          </div>
+
+          <!-- Impact Statistics -->
+          <div class="grid grid-cols-4 gap-6 mb-8">
+            <div class="text-center">
+              <div class="impact-number text-3xl font-black mb-1">300+</div>
+              <div class="text-white/60 text-xs uppercase tracking-wider">Lives Saved</div>
+            </div>
+            <div class="text-center">
+              <div class="impact-number text-3xl font-black mb-1">25+</div>
+              <div class="text-white/60 text-xs uppercase tracking-wider">Projects</div>
+            </div>
+            <div class="text-center">
+              <div class="impact-number text-3xl font-black mb-1">5K+</div>
+              <div class="text-white/60 text-xs uppercase tracking-wider">People Served</div>
+            </div>
+            <div class="text-center">
+              <div class="impact-number text-3xl font-black mb-1">30+</div>
+              <div class="text-white/60 text-xs uppercase tracking-wider">Volunteers</div>
+            </div>
+          </div>
+
+          <!-- Feature Grid -->
+          <div class="grid grid-cols-2 gap-4 max-w-2xl">
+            <div class="feature-card bg-white/5 rounded-xl p-4 border border-white/10">
+              <div class="flex items-center gap-3">
+                <div class="icon-circle">
+                  <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-white font-bold">24/7 Ambulance</div>
+                  <div class="text-white/60 text-xs">Emergency Medical Transport</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-card bg-white/5 rounded-xl p-4 border border-white/10">
+              <div class="flex items-center gap-3">
+                <div class="icon-circle">
+                  <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-white font-bold">Clean Water</div>
+                  <div class="text-white/60 text-xs">RO Plant Operation</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-card bg-white/5 rounded-xl p-4 border border-white/10">
+              <div class="flex items-center gap-3">
+                <div class="icon-circle">
+                  <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-white font-bold">Islamic Charity</div>
+                  <div class="text-white/60 text-xs">Usher & Zakat</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-card bg-white/5 rounded-xl p-4 border border-white/10">
+              <div class="flex items-center gap-3">
+                <div class="icon-circle">
+                  <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="text-white font-bold">Community Support</div>
+                  <div class="text-white/60 text-xs">Funeral & Events</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Floating Card - Enhanced -->
+        <div class="w-[450px] relative">
+          <div
+            class="rounded-2xl p-8 bg-white/10 border border-white/10 backdrop-blur-md glint"
+            style="animation: floaty 4.5s ease-in-out infinite"
+          >
+            <!-- Call to Action -->
+            <div class="text-center mb-8">
+              <div class="text-white font-black text-2xl mb-2">Ready to Make a Difference?</div>
+              <div class="text-white/70 text-sm">Join our mission or support our cause</div>
+            </div>
+
+            <!-- Action Buttons -->
+            <!-- <div class="grid grid-cols-2 gap-4 mb-8">
+              <button class="bg-white/20 hover:bg-white/30 border border-white/20 rounded-xl p-4 text-white font-bold text-sm transition-all duration-300 hover:scale-105">
+                🤝 Become Volunteer
+              </button>
+              <button class="bg-green-500/30 hover:bg-green-500/40 border border-green-400/30 rounded-xl p-4 text-white font-bold text-sm transition-all duration-300 hover:scale-105">
+                💝 Donate Now
+              </button>
+            </div> -->
+
+            <!-- Quick Services -->
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10">
+                <div class="text-white font-semibold text-sm">Ambulance Service</div>
+                <div class="text-white/60 text-xs">24/7</div>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10">
+                <div class="text-white font-semibold text-sm">Water Plant</div>
+                <div class="text-white/60 text-xs">500+ Families</div>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10">
+                <div class="text-white font-semibold text-sm">Emergency Support</div>
+                <div class="text-white/60 text-xs">Immediate</div>
+              </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+              <div class="text-white font-bold text-sm mb-3">📞 Contact Information</div>
+              <div class="space-y-2 text-xs">
+                <div class="flex justify-between text-white/70">
+                  <span>General Helpline:</span>
+                  <span class="text-white font-semibold">+92 310 7091172</span>
+                </div>
+                <div class="flex justify-between text-white/70">
+                  <span>Ambulance:</span>
+                  <span class="text-white font-semibold">+92 301 1955172</span>
+                </div>
+                <div class="flex justify-between text-white/70">
+                  <span>Ro Filter Plant:</span>
+                  <span class="text-white font-semibold">+92 300 1955172</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Proof -->
+            <!-- <div class="mt-6 text-center">
+              <div class="text-white/60 text-xs mb-2">Trusted by the community since 2019</div>
+              <div class="flex justify-center gap-4 text-white/40">
+                <div>🏆</div>
+                <div>⭐</div>
+                <div>💫</div>
+              </div>
+            </div>
+          </div> -->
+
+          <div
+            class="absolute -left-10 -bottom-8 -rotate-12 px-4 py-2 bg-white/5 border border-white/10 text-xs text-white/80 rounded-lg backdrop-blur-sm"
+          >
+            🚀 Making Impact Daily
+          </div>
+        </div>
+      </div>
+
+      <!-- Enhanced Footer -->
+      <div
+        class="absolute inset-x-0 bottom-0 h-12 flex items-center justify-between px-16 text-white/60 text-xs border-t border-white/10"
+      >
+        <div class="flex items-center gap-6">
+          <div>© <span id="year"></span> Hamdard Committee. All rights reserved.</div>
+          <div class="w-1 h-1 bg-white/30 rounded-full"></div>
+          <div>Registered Non-Profit Organization</div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div>📧</div>
+          <div>📱</div>
+          <div>• Developed by Muhammad Bilal</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Enhanced interactions
+      document.querySelectorAll('.feature-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.25)';
+        });
+        card.addEventListener('mouseleave', function() {
+          this.style.boxShadow = 'none';
+        });
+      });
+
+      // Button hover effects
+      document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-2px)';
+        });
+        btn.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Navigation items
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+          document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('bg-white/10', 'text-white'));
+          this.classList.add('bg-white/10', 'text-white');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 
 const pageUrl = "https://hamdardcommittee.org/about/team";
-const pageTitle = "Our Team – Hamdard Committee";
+
+const pageTitle = "Our Team - Dedicated Members of Hamdard Committee"; 
+// 55 characters (Perfect SEO length)
+
 const pageDesc =
-  "Meet the dedicated team members of Hamdard Committee who work tirelessly to provide welfare, ambulance, medical assistance, and community support across Pakistan.";
+  "Meet the hardworking team behind Hamdard Committee providing welfare, medical aid, ambulance service, and community support across Pakistan."; 
+// 155 characters (Ideal 120–160)
+
+const pageKeywords =
+  "Hamdard Committee team, NGO volunteers Pakistan, welfare workers, ambulance service staff, medical assistance team, humanitarian organization Pakistan";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDesc,
+  keywords: pageKeywords,
 
   alternates: {
     canonical: pageUrl,
@@ -53,12 +61,16 @@ export default function TeamLayout({ children }: { children: React.ReactNode }) 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: pageTitle,
+    name: "Hamdard Committee",
     url: pageUrl,
     description: pageDesc,
-    employee: [
-      // optionally add team members here
-    ],
+    keywords: pageKeywords,
+
+    department: {
+      "@type": "Organization",
+      name: "Hamdard Committee – Team Members Section",
+    },
+
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
@@ -86,7 +98,10 @@ export default function TeamLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {children}
     </>
   );
