@@ -14,7 +14,7 @@ export const metadata = {
       "Meet the hardworking team of Hamdard Committee providing welfare, ambulance, medical aid, and community support services across Pakistan.",
     url: "https://hamdardcommittee.org/about/team",
     images: [
-      "og-images/og-ourteam.png",
+      "/og-images/og-ourteam.png",
     ],
     siteName: "Hamdard Committee",
     type: "website",

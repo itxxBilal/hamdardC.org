@@ -13,7 +13,7 @@ export const metadata = {
     description:
       "Meet Dr. Ali Ahmad, the visionary founder of Hamdard Committee, dedicated to community service and humanitarian work since 2019 in Pakistan.",
     url: "https://hamdardcommittee.org/about/founder",
-    images: ["/OG-Images/og-founder.png"],
+    images: ["/og-images/og-founder.png"],
     siteName: "Hamdard Committee",
     type: "website",
   },
